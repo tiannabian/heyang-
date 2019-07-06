@@ -1,7 +1,7 @@
 __author__ = '何旺彤'
 
-from complete_test import read_config
-from complete_test.common import project_path
+from complete_test_api_test import read_config
+from complete_test_api_test.common import project_path
 import re
 
 config = read_config.ReadConfig(project_path.conf_path)

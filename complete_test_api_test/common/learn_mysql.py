@@ -4,8 +4,8 @@ __author__ = '何旺彤'
 #pip install pymysql
 #pip install mysql-connector-python
 from mysql import connector
-from complete_test.read_config import ReadConfig
-from complete_test.common import project_path
+from complete_test_api_test.read_config import ReadConfig
+from complete_test_api_test.common import project_path
 
 class DoMysql:
     '''操作数据库类，专门进行数据的读写'''

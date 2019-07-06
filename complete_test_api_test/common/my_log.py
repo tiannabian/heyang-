@@ -2,7 +2,7 @@ __author__ = '何旺彤'
 
 
 import logging
-from complete_test.common.project_path import log_path
+from complete_test_api_test.common.project_path import log_path
 
 class MyLog:
     def my_log(self, level, msg):
