@@ -1,13 +1,13 @@
 __author__ = '何旺彤'
 import unittest
 from ddt import ddt,data
-from complete_test.common.http_request import HttpRequest
-from complete_test.common.do_excel import DoExcel
-from complete_test.common import project_path
-from complete_test.common.my_log import MyLog
-from complete_test.common.learn_mysql import DoMysql
-from complete_test.common.get_data import GetData
-from complete_test.common import get_data
+from complete_test_api_test.common.http_request import HttpRequest
+from complete_test_api_test.common.do_excel import DoExcel
+from complete_test_api_test.common import project_path
+from complete_test_api_test.common.my_log import MyLog
+from complete_test_api_test.common.learn_mysql import DoMysql
+from complete_test_api_test.common.get_data import GetData
+from complete_test_api_test.common import get_data
 #测试注册
 test_data=DoExcel(project_path.case_path,'Addloan').read_data('AddloanCASE')#获取测试数据
 my_log=MyLog()

@@ -9,7 +9,7 @@ __author__ = '何旺彤'
     查找一些特殊的字符：邮箱、手机号码、身份证号码
 """
 import re
-from complete_test.common.get_data import GetData
+from complete_test_api_test.common.get_data import GetData
 target = "{'mobilephone':'#normal_user#','pwd':'#normal_pwd#'}"
 #p = 'normal_user'#原义字符查找
 p2 = '#(.*?)#'    #()代表正则表达式里面组的概念

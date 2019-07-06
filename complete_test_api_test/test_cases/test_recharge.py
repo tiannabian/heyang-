@@ -1,21 +1,23 @@
 __author__ = '何旺彤'
 import unittest
 from ddt import ddt,data
-from complete_test.common.http_request import HttpRequest
-from complete_test.common.do_excel import DoExcel
-from complete_test.common import project_path
-from complete_test.common.my_log import MyLog
-from complete_test.common.learn_mysql import DoMysql
+from complete_test_api_test.common.http_request import HttpRequest
+from complete_test_api_test.common.do_excel import DoExcel
+from complete_test_api_test.common import project_path
+from complete_test_api_test.common.my_log import MyLog
+from complete_test_api_test.common.get_data import GetData
+from complete_test_api_test.common.learn_mysql import DoMysql
 
-#测试注册
-test_data=DoExcel(project_path.case_path,'Invest').read_data('InvestCASE')#获取测试数据
+#测试充值
+test_data=DoExcel(project_path.case_path,'recharge').read_data('RechargeCASE')#获取测试数据
 my_log=MyLog()
+#COOKIES=None#设定cookies的初始值
 
 @ddt
 class TestCases(unittest.TestCase):
 
     def setUp(self):
-        self.t=DoExcel(project_path.case_path,'Invest')#写入测试结果对象
+        self.t=DoExcel(project_path.case_path,'recharge')#写入测试结果对象
 
     def tearDown(self):
         pass
@@ -23,6 +25,7 @@ class TestCases(unittest.TestCase):
     @data(*test_data)
     def test_cases(self,case):
         global TestResult#全局变量
+        #global COOKIES#声明是一个全局变量
         method=case['method']
         url=case['URL']
         param=eval(case['Params'])
@@ -30,25 +33,24 @@ class TestCases(unittest.TestCase):
         #发起测试
         my_log.info('-----正在测试{}模块中的第{}条用例：{}'.format(case['module']))
         my_log.info('-----测试数据是{}'.format())
-        #投资前查询数据库，获取余额保存
+
+        #充值前查询数据库，获取余额保存
         if case['sql'] is not None:
             before_amount = DoMysql().do_mysql(eval(case['sql'])['sql'])[0]
 
-        resp=HttpRequest().http_request(method,url,param)
+        resp=HttpRequest().http_request(method,url,param,cookies=getattr(GetData,'COOKIES'))
         if resp.cookies:#判断请求的cookies是否为空，不为空其实就是true
             setattr(GetData,'COOKIES',resp.cookies)#我们可以更新COOKIES这个全局变量的值
 
-        #投资后查询数据库的余额
-        if case['sql'] is not None:
-            after_amount = DoMysql().do_mysql(eval(case['sql'])['sql'])[0]
-
         try:
-            self.assertEqual(eval(case['ExceptedResult']),resp.json())
             if case['sql'] is not None:
                 after_amount = DoMysql().do_mysql(eval(case['sql'])['sql'])[0]
-                invest_amount = param['amount']
-                expect_amount = before_amount-after_amount
-                self.assertEqual(expect_amount,invest_amount)
+                recharge_amount = param['amount']
+                expect_amount = int(before_amount)+recharge_amount
+                self.assertEqual(expect_amount, after_amount)
+            if case['ExpectedResult'].find('expect_amount') > -1:#判断是否需要做期望值的替换
+                case['ExceptedResult'] = case['ExpectedResult'].replace('amount',str(expect_amount))
+            self.assertEqual(eval(case['ExceptedResult']),resp.json())
             TestResult='Pass'#请注意这里
         except AssertionError as e:
             TestResult='Fail'

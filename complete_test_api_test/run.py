@@ -2,9 +2,9 @@ __author__ = '何旺彤'
 
 import unittest
 import HTMLTestRunnerNew
-from complete_test.test_cases import test_recharge
-from complete_test.test_cases import test_register
-from complete_test.common import project_path
+from complete_test_api_test.test_cases import test_recharge
+from complete_test_api_test.test_cases import test_register
+from complete_test_api_test.common import project_path
 
 #新建一个测试集
 suite=unittest.TestSuite()
