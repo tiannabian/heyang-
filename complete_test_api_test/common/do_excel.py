@@ -5,7 +5,7 @@ from complete_test_api_test.common import project_path
 
 
 class DoExcel:
-    '''该类完成测试数据的读取以及测试结果的写会'''
+    '''该类完成测试数据的读取以及测试结果的写入'''
     def __init__(self,file_name,sheet_name):
         self.file_name=file_name#工作簿文件名地址
         self.sheet_name=sheet_name#表单名
