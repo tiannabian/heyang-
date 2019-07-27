@@ -72,3 +72,22 @@ ele = driver.find_element_by_css_selector('input#kw')
 
 #id, name, class_name, tag_name==>find element()==>转成css选择器==>find element by_css_selector()
 
+#ipt<s_ipt       //input[@id='kw']/../..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
