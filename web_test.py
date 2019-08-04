@@ -1,5 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -70,10 +71,10 @@ ele = driver.find_element_by_css_selector('input#kw')
 #ipt<s_ipt       //input[@id='kw']/../..     //a[text()='新闻']
 '''
 #import time
-from selenium import webdriver
-driver = webdriver.Firefox()
-driver.implicitly_wait()
-driver.get('http://www.baidu.com')
+# from selenium import webdriver
+# driver = webdriver.Firefox()
+# driver.implicitly_wait()
+# driver.get('http://www.baidu.com')
 #+等待
 '''
 time.sleep(3)
@@ -112,6 +113,9 @@ driver.close()
 driver.quit()
 '''
 
+
+
+'''
 #显示等待用法：
 #初始化计时器
 wait = WebDriverWait(driver, timeout=30, poll_frequency=0.5)
@@ -150,6 +154,59 @@ time.sleep(3)
 #演唱会 摄像头,隐式等待只能用一次   driver.implicitly_wait()
 #显性等待，特别行动小组，门卡
 driver.quit()
+'''
+
+
+
+
+from selenium.webdriver import Chrome
+
+driver = Chrome()
+driver.implicitly_wait(20)
+
+driver.get('http://www.baidu.com')
+
+#计时器1、第一个参数driver  第二个参数是过期时间，第三个参数频率
+# wait = WebDriverWait(driver, timeout=30, poll_frequency=0.5)
+# wait.until(ec.presence_of_all_elements_located((By.ID,'kw')))
+#练习定位柠檬拌图片
+#定位input输入框
+
+#函数注解
+def wait_find_element(loactor) -> WebElement:
+    wait = WebDriverWait(driver, timeout=30, poll_frequency=0.5)
+    input_ele = wait.until(ec.presence_of_all_elements_located(loactor))
+    return input_ele
+
+input_ele = wait_find_element((By.ID, 'kw'))
+input_ele.send_keys('柠檬班')
+
+# sub_ele = wait_find_element((By.ID, 'su'))
+# sub_ele.click()#快捷方式，当输入的内容在一个form表单里面的时候，可以使用ele.submit()  来进行提交；使用方式是
+input_ele.submit()
+
+#定位柠檬班腾讯课堂
+nm_ke = wait_find_element((By.XPATH, "//a[contains(text(),'lemon.ke.qq.com/')]"))
+nm_ke.click()
+
+time.sleep(2)
+#窗口切换的等待
+current_handles = driver.window_handles
+wait = WebDriverWait(driver, timeout=30, poll_frequency=0.5)
+wait.until(ec.new_window_is_opened(current_handles))
+
+#iframe切换
+
+#窗口切换，首先要去取到每一个窗口的id
+#窗口的句柄也就是窗口的名字
+#print(driver.current_window_handle)#获取当前窗口
+print(driver.window_handles)#获取所有句柄信息，返回是一个列表
+driver.switch_to.window(driver.window_handles[1])
+
+
+#点击定位图片
+img = wait_find_element((By.TAG_NAME,'img'))
+print(img)
 
 
 
