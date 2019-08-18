@@ -71,8 +71,22 @@ driver.execute_script(js_code_1, date_ele)
 '''
 总结
 1、鼠标操作 ActionChains  链式调用，存储动作，函数的动态调用
+单击
+双击
+右击context_click
+鼠标悬停
+拖拽：drag_and_drop
+
+perform()
 2、Key，键盘发送
+
+
+
+
 3、js脚本发送
+
+
+
 
 '''
 
