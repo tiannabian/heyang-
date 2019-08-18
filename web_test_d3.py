@@ -97,8 +97,24 @@ driver.get('http://baidu.com')
 #举例子：百度首页，悬停到设置
 ac = ActionChains(driver)
 ele = wait_find_element((By.XPATH,"//a[text()='设置']"))
-gj = wait_find_element((By.XPATH, "//a[text()='高级搜索' ]"))
-ac.move_to_element(ele).click(gj).perform()
+ac.move_to_element(ele).perform()
+ac.click(wait_find_element((By.XPATH, "//a[text()='高级搜索' ]"))).perform()
+
+'''
+链式调用  actionChains
+1、每次都是return self
+2、perform()  run()
+作用：用在连续调用，一次运行不同的程序或者函数
+：数据库，ORM模型==》链式调用
+
+函数：
+1、click()
+2、double-click()
+3、context_click()
+4、click_and_hold()
+5、drag_and_drop()
+move_to_element
+'''
 
 
 
