@@ -67,8 +67,30 @@ e.location_once_scrolled_into_view()
 ###########################################################富文本域
 #富文本域 textarea,不能使用send_keys,  需要使用js形式，修改里面的innerHTML
 
+'''
+一、web自动化selenium
+1、selenium原理：通过http协议搭建的webdriver接口，一方面，它通过一个servers服务，使用python里面的subprocess库自动的运行了chromedriver.exe文件
+并在对应的窗口开一个webdriver服务；另一方面，chromeRemoteConnection==>类似于requests urlib3 ==> requsts.post(host:9515/接口地址)
+问题：使用requests库访问对应的webdriver接口实现以下功能：
+1、访问百度页面2、通过id形式查找搜索输入框元素并打印返回结果3、通过css selector查找搜索输入框元素并打印返回结果
+import requests
+from selenium import webdriver
+driver = webdriver.Chrome()
+#访问百度页面
+sessionid = driver.session_id  #webdriver的接口地址，requests,接口地址，commands = []
+url = 'http://localhost:9515/session/{}/url'.format(sessionid)
+baidu_url = 'http://www.baidu.com'
+data = {'url':baidu_url}
+requests.post(url,json=data)
+
+#获取页面元素，接口文档没有，不知道参数要传递什么
+url = 'http://localhost:9515/session/{}/element'.format(sessionid)
+data = {'using':"css selector",'value':"#kw"}
+res = requests.post(url, json=data)
+print(res)
 
 
+'''
 
 
 
