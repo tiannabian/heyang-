@@ -78,15 +78,9 @@ driver.execute_script(js_code_1, date_ele)
 拖拽：drag_and_drop
 
 perform()
-2、Key，键盘发送
-
-
-
+2、Key，键盘发送  send_keys()
 
 3、js脚本发送
-
-
-
 
 '''
 

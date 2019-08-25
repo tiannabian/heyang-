@@ -1,7 +1,7 @@
 __author__ = '何旺彤'
 
 
-#########################################文件传输  面试题
+#########################################文件传输
 
 
 import time
@@ -37,18 +37,35 @@ import win32gui
 import win32con
 
 #找到对应的窗口
-dialog = win32gui.FindWindow("#32770", "打开")#一级窗口
+dialog = win32gui.FindWindow("#32770", "打开")#一级窗口(上传窗口),32770为句柄
 #找到窗口
-ComboBoxEx32 = win32gui.FindWindowEx(dialog,0,"ComboBoxEx32",None)  #二级
+ComboBoxEx32 = win32gui.FindWindowEx(dialog,0,"ComboBoxEx32",None)  #二级（子窗口）
 comboBox = win32gui.FindWindowEx(ComboBoxEx32,0,"ComboBox",None)#三级
 edit = win32gui.FindWindowEx(comboBox,0,"Edit",None) #四级
-button = win32gui.FindWindowEx(dialog,0,'Button',None)  #四级
+button = win32gui.FindWindowEx(dialog,0,'Button',None)  #二级
 
 #操作
 win32gui.SendMessage(edit,win32con.WM_SETTEXT,None,'D;\\apk.txt') #发送文件路径
-win32gui.SendMessage(dialog,win32con.WM_COMMAND,1,button)
+win32gui.SendMessage(dialog,win32con.WM_COMMAND,1,button)#点击打开按钮
 
 
+
+
+
+########################################################窗口拖动，滚动  原因：特定的时候只有将窗口滚动到某个特定的位置，某个元素才会出现
+#第一种方法：发送拖动的js脚本
+js_code = "window.scrollTo(0,document.body.scrollHeight)"
+driver.execute_script(js_code)
+
+
+#第二种方法：使用selenium
+e.location_once_scrolled_into_view()
+
+
+
+
+###########################################################富文本域
+#富文本域 textarea,不能使用send_keys,  需要使用js形式，修改里面的innerHTML
 
 
 
