@@ -29,3 +29,9 @@ class LoginPage:
         pwd_ele.send_keys(pwd)
         user_ele.submit()
         return self.driver
+
+    def get_flash_info(self):
+        """获取错误信息"""
+        flash_ele = WebDriverWait(self.driver, 20).until(
+            ec.presence_of_element_located((By.CSS_SELECTOR, 'form-error-info')))
+        return flash_ele
