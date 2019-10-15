@@ -9,7 +9,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver import Chrome
 from pages.login import LoginPage
+from pages.index import IndexPage
+import ddt
+from test_data.login import user_info_error
 
+
+
+@ddt.ddt
 class TestLogin(unittest.TestCase):
 
     def setUp(self)-> None:
@@ -21,34 +27,41 @@ class TestLogin(unittest.TestCase):
     def tearDown(self)-> None:   #箭头符号表示函数注解表示返回的是None
         self.driver.quit()
 
-    def test_login_success(self):
-        #登陆
+    def test_login_2_success(self):
+        #登陆 login
         driver = self.login_page.login("18684720553", "python")
         #5、断言,首页的元素
-        #user_ele = driver.find_element_by_xpath("//a[@href='/Member/index.html']")#记住这个要进行等待，不等待运行不成功
-        user_ele = WebDriverWait(driver, 20).until(
-            ec.presence_of_element_located((By.XPATH, "//a[@href='/Member/index.html']")))
+        #先获取用户信息  get_user_info
+        user_ele = IndexPage(self.driver).get_user_info()
         self.assertTrue("小蜜蜂96027921" in user_ele.text)
         time.sleep(2)
-        driver.quit()
 
-        #5、断言,首页的元素
-        #user_ele = driver.find_element_by_xpath("//a[@href='/Member/index.html']")#记住这个要进行等待，不等待运行不成功
-        user_ele = WebDriverWait(driver, 20).until(
-            ec.presence_of_element_located((By.XPATH, "//a[@href='/Member/index.html']")))
-        self.assertTrue("小蜜蜂96027921" in user_ele.text)
-        time.sleep(2)
-        driver.quit()
 
     #手机号码为空：请输入手机号码
     #手机号码格式不正确：请输入正确的手机号码
     #密码为空：请输入密码
     #密码不正确：弹层：此账号没有经过授权，请联系管理员!
-    def test_login_error_one(self):
+    #####数据不同采用ddt进行数据分离
 
-        driver = self.login_page.login("","")
+    @ddt.data(*user_info_error)
+    def test_login_1_error(self, data):
+        """手机号码为空，请输入手机号"""
+        #登陆
+        driver = self.login_page.login(data['username'], data['pwd'])
+        #定位出错信息的元素 get_flash_info()
+        flash_ele = self.login_page().get_flash_info()
         #断言
-        self.assertTrue(e.text, '请输入手机号码')
+        self.assertTrue(data['expected'] == flash_ele.text)
+
+
+
+
+
+
+
+
+
+
 
     def test_login_error_two(self):
         driver = self.login_page.login(18684720553, "")
