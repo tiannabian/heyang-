@@ -6,9 +6,16 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver import Chrome
+from pages.base import BasePage
 
-class LoginPage:
+
+class LoginPage(BasePage):
     """登录页面，PageObject"""
+    username_locator = (By.NAME, 'phone')
+    pwd_locator = (By.XPATH, "//input[@name='password']")
+
+
+
     def __init__(self, driver):
         self.driver = driver
         self.url = "http://120.78.128.25:8765/Index/login.html"
@@ -53,15 +60,18 @@ class LoginPage:
     def get_user_info(self):
         """定位用户名"""
         user_ele = WebDriverWait(self.driver, 20).until(
-            ec.presence_of_element_located((By.NAME, 'phone')))
+            ec.presence_of_element_located((self.username_locator)))
         return user_ele
 
     def get_pwd_info(self):
         """定位密码输入"""
         user_ele = WebDriverWait(self.driver, 20).until(
-            ec.presence_of_element_located((By.XPATH, "//input[@name='password']")))
+            ec.presence_of_element_located((self.pwd_locator)))
         return user_ele
 ######为什么要封装这么多函数？1、当项目越来越大的时候，只需要使用这些函数，不需要复制具体的代码了；2、增加代码的可读性；3、中级要求，10来行，函数的颗粒度
+######进一步封装locator，元素定位表达式;第一种方式：类属性封装；第二种方法：新建一个locator 文件夹
+######封层总结：1、函数  2、PageObject 函数共享变量 3、DDT数据分层，提高复用性，更加容易维护，可读性高   4、locator分层，元素定位分层 5、basepage
+
 
 
 
