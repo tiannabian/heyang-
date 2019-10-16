@@ -18,18 +18,28 @@ from test_data.login import user_info_error
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
-    def setUp(self)-> None:
+
+    @classmethod  #类方法
+    def setUpClass(cls) - > None:  #两种方法表示每一个类只执行一次
         #浏览器初始化
-        self.driver = Chrome()
+        cls.driver = Chrome()
         #初始化登陆界面
-        self.login_page = LoginPage(self.driver)
+        cls.login_page = LoginPage(cls.driver)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.quit()
+
+
+    def setUp(self)-> None:
+        pass
 
     def tearDown(self)-> None:   #箭头符号表示函数注解表示返回的是None
-        self.driver.quit()
+        pass#清空用户信息 clear_user_info()
 
     def test_login_2_success(self):
         #登陆 login
-        driver = self.login_page.login("18684720553", "python")
+        self.login_page.login("18684720553", "python")
         #5、断言,首页的元素
         #先获取用户信息  get_user_info
         user_ele = IndexPage(self.driver).get_user_info()
