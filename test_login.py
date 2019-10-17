@@ -64,26 +64,5 @@ class TestLogin(unittest.TestCase):
         self.assertTrue(data['expected'] == flash_ele.text)
 
 
-
-
-
-
-
-
-
-
-
-    def test_login_error_two(self):
-        driver = self.login_page.login(18684720553, "")
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()

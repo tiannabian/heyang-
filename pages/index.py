@@ -13,9 +13,7 @@ class IndexPage(BasePage):
 
     def get_user_info(self):
         """获取首页的用户信息"""
-        #BasePage.wait_present_element()
-        user_ele = WebDriverWait(self.driver, 20).until(
-            ec.presence_of_element_located((By.XPATH, "//a[@href='/Member/index.html']")))
+        user_ele = BasePage.wait_present_element((By.XPATH, "//a[@href='/Member/index.html']"))
         return user_ele
 
     def choice_bid(self):
