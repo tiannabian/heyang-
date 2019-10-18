@@ -8,6 +8,8 @@ __author__ = '123456'
 class IndexPage(BasePage):
     """首页类"""
 
+    bid_locator = (By.XPATH, '//a[contains(@class,"btn-special")]')
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -19,6 +21,6 @@ class IndexPage(BasePage):
     def choice_bid(self):
         """选择标的"""
         #定位投标这个按钮
-
+        e = BasePage.wait_clickable_element(self.bid_locator)
         #点击
-        pass
+        e.click()

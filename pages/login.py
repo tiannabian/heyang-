@@ -13,12 +13,13 @@ class LoginPage(BasePage):
     """登录页面，PageObject"""
     username_locator = (By.NAME, 'phone')
     pwd_locator = (By.XPATH, "//input[@name='password']")
+    url = "http://120.78.128.25:8765/Index/login.html"
 
 
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = "http://120.78.128.25:8765/Index/login.html"
+    # def __init__(self, driver):
+    #     self.driver = driver
+    #     self.url = "http://120.78.128.25:8765/Index/login.html"
 
     def login(self, username, pwd):
         """登陆函数封装"""

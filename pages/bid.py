@@ -10,4 +10,17 @@ from pages.base import BasePage
 
 class BidPage(BasePage):
     """投资页面，PageObject"""
-    pass
+
+    bid_input_locator = (By.XPATH, '//input[contains(@class,"form-control invest-unit-investinput")]')
+
+    def get_bid_input_element(self):
+        """获取投标输入框元素"""
+        get_bid_input_ele = WebDriverWait(self.driver, 20).until(
+            ec.presence_of_element_located((self.bid_input_locator)))
+        return get_bid_input_ele
+
+
+
+
+
+
