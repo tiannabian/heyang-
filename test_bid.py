@@ -19,6 +19,8 @@ from selenium.webdriver.remote import webdriver
 from test_data.login import user_info_success
 from pages.index import IndexPage
 from pages.bid import BidPage
+from test_data.bid import invest_money
+from pages.user import UserPage
 
 
 class TestBid(unittest.TestCase):
@@ -41,6 +43,23 @@ class TestBid(unittest.TestCase):
         e = self.bid_page.get_bid_input_element()
 
         expect = e.get_attribute('data-amount')
+        print(expect)
+
+        #发送投资金额
+        e.send_keys(invest_money)
+        #点击投标
+        self.bid_page.click_bid_submit()
+        #获取可用余额
+        actual_money_str = UserPage(self.driver).get_user_money()
+        actual_money = float(actual_money_str)
+        #断言相关操作
+        self.assertTrue(int(expect*100)-invest_money == int(actual_money))
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+
 
 
 
