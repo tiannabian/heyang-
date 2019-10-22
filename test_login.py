@@ -17,6 +17,8 @@ import pytest
 
 
 @ddt.ddt
+@pytest.mark.login
+@pytest.mark.c
 class TestLogin(unittest.TestCase):
 
 
@@ -38,6 +40,8 @@ class TestLogin(unittest.TestCase):
     def tearDown(self)-> None:   #箭头符号表示函数注解表示返回的是None
         pass#清空用户信息 clear_user_info()
 
+
+    #@pytest.mark.login
     def test_login_2_success(self):
         #登陆 login
         self.login_page.login("18684720553", "python")
@@ -54,6 +58,9 @@ class TestLogin(unittest.TestCase):
     #密码不正确：弹层：此账号没有经过授权，请联系管理员!
     #####数据不同采用ddt进行数据分离
 
+
+    @pytest.mark.login
+    @pytest.mark.error#mark表示标记
     @ddt.data(*user_info_error)
     def test_login_1_error(self, data):
         """手机号码为空，请输入手机号"""
@@ -64,6 +71,18 @@ class TestLogin(unittest.TestCase):
         #断言
         self.assertTrue(data['expected'] == flash_ele.text)
 
+    def test_login_2_unauth(self, data):
+        pass
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
+
+    #随机测试
+    #测试用例发现 自动发现
+    #测试环境管理  fixture
+    #测试报告得生成  pip install pytest-allure
+    #重运行机制
