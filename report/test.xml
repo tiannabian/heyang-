@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="7" failures="0" hostname="MI-20180820LTEK" name="pytest" skipped="0" tests="7" time="0.318" timestamp="2019-10-23T18:52:16.155277"><testcase classname="" file="test_bid.py" name="test_bid" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\test_bid.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test_bid.py:12: in &lt;module&gt;
+    from selenium.webdriver.common.by import By
+E   ModuleNotFoundError: No module named &apos;selenium&apos;</error></testcase><testcase classname="" file="test_login.py" name="test_login" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\test_login.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test_login.py:6: in &lt;module&gt;
+    from selenium.webdriver.common.by import By
+E   ModuleNotFoundError: No module named &apos;selenium&apos;</error></testcase><testcase classname="" file="web_test.py" name="web_test" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\web_test.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+web_test.py:2: in &lt;module&gt;
+    from selenium.webdriver.common.by import By
+E   ModuleNotFoundError: No module named &apos;selenium&apos;</error></testcase><testcase classname="" file="complete_test_api_test/test_cases/test_addloan.py" name="complete_test_api_test.test_cases.test_addloan" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\complete_test_api_test\test_cases\test_addloan.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+complete_test_api_test\test_cases\test_addloan.py:3: in &lt;module&gt;
+    from ddt import ddt,data
+E   ModuleNotFoundError: No module named &apos;ddt&apos;</error></testcase><testcase classname="" file="complete_test_api_test/test_cases/test_invest.py" name="complete_test_api_test.test_cases.test_invest" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\complete_test_api_test\test_cases\test_invest.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+complete_test_api_test\test_cases\test_invest.py:3: in &lt;module&gt;
+    from ddt import ddt,data
+E   ModuleNotFoundError: No module named &apos;ddt&apos;</error></testcase><testcase classname="" file="complete_test_api_test/test_cases/test_recharge.py" name="complete_test_api_test.test_cases.test_recharge" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\complete_test_api_test\test_cases\test_recharge.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+complete_test_api_test\test_cases\test_recharge.py:3: in &lt;module&gt;
+    from ddt import ddt,data
+E   ModuleNotFoundError: No module named &apos;ddt&apos;</error></testcase><testcase classname="" file="complete_test_api_test/test_cases/test_register.py" name="complete_test_api_test.test_cases.test_register" time="0.000"><error message="collection failure">ImportError while importing test module &apos;D:\python_code\lemon_test\heyang-\complete_test_api_test\test_cases\test_register.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+complete_test_api_test\test_cases\test_register.py:3: in &lt;module&gt;
+    from ddt import ddt,data
+E   ModuleNotFoundError: No module named &apos;ddt&apos;</error></testcase></testsuite></testsuites>
