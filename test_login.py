@@ -13,6 +13,7 @@ from pages.index import IndexPage
 import ddt
 from test_data.login import user_info_error
 import pytest
+#import init_web
 
 
 
@@ -32,6 +33,7 @@ import pytest
 @pytest.mark.login
 @pytest.mark.c
 @pytest.mark.test
+#@pytest.mark.usefixture('init_web')#如果要在类的前面调用fixture可以传参数进去
 class TestLogin():
 
 
@@ -78,10 +80,10 @@ class TestLogin():
 
 
     #@pytest.mark.login
-    @pytest.mark.skip(reason="这不重要")#mark表示标记
+    #@pytest.mark.skip(reason="这不重要")#mark表示标记
     @ddt.data(*user_info_error)
     @pytest.mark.parametrize('data', user_info_error)
-    def test_login_1_error(self, data, init_web):
+    def test_login_1_error(self, data, session_fixture, init_web):
         """手机号码为空，请输入手机号"""
         #登陆
         #init_web[0]  init_web[1]

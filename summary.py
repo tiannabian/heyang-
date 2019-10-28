@@ -36,8 +36,27 @@ pytest的参数化  @pytest.mark.parametrize('data', user_info_error)
 不能和unittest同时使用
 
 
+pytest-allure
+1、安装allure,   官网下载  解压到本地， 配置环境变量
+2、 查看测试报告allure serve report\allure
 
+jenkins
+分布式配置：高并发、高性能  Master-slave;master就是jenkins的一个服务，一个网站；slave就是我们现在运行的电脑
+
+"""
+
+"""
+web自动化测试内容
+web自动化测试概论
+前端页面：html,DOM对象
+Seleniumd的使用
+selenium自动化测试框架原理、xpath  CSS对比
+pytest另一个单元测试框架
+jenkins集成和allure
+一、web自动化测试概论
+什么是web测试，为什么还要web测试？
 
 
 
 """
+
