@@ -55,6 +55,37 @@ pytest另一个单元测试框架
 jenkins集成和allure
 一、web自动化测试概论
 什么是web测试，为什么还要web测试？
+二、前端页面：html、DOM对象、js
+1、HTML
+元素定位，依据？？HTML购成（标签对  属性）。。。
+2、DOM
+只有js可以操作DOM吗？不是
+DOM文档对象模型 为什么要用？方便
+独立于平台和编程语言，可以被python java  js 等，只要支持对象，基本就ok
+节点：（12个节点）文档节点（根节点，document,HTML）、元素节点（标签）、属性节点（id=""）、文本节点(text)、注释节点(注释)、指令节点(事件)
+
+getElement
+修改属性
+alert
+节点之间的关系：子孙关系、父子关系、同胞关系，只有根节点没有父节点
+
+DOM事件：键盘、鼠标、windows、表单、拖动、event js
+少部分情况，显示等待，强制1
+
+三、selenium的使用
+元素定位
+xpath
+css选择器
+css vs xpath面试题
+复杂操作：
+等待：三大等待的区别,python 线程等待
+显示等待 while finded==False
+隐式等待，直接发送等待命令
+三大切换，窗口，frame、alert
+actionchains
+
+
+
 
 
 
