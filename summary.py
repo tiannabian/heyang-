@@ -81,8 +81,34 @@ css vs xpath面试题
 等待：三大等待的区别,python 线程等待
 显示等待 while finded==False
 隐式等待，直接发送等待命令
-三大切换，窗口，frame、alert
-actionchains
+三大切换，窗口，frame、alert    window_handlers,切换==>(current_handlers)
+actionchains  链式  return obj[列表]， perform()
+select 1、点击  2、select类  3、option,index,value,text
+如果修改HTML, JS
+窗口拖动，懒加载，拖动到可视范围
+富文本，HTML，编辑器send_keys()
+文件上传和下载操作
+
+四、selenium自动化测试框架搭建
+测试用例设计
+带版本信息，一步一步封装优化
+PageObject， MVC model, 会问到什么是，为什么会用到
+ddt和用例数据分组
+basepage
+locator
+效率问题和环境依赖
+
+五、pytest另一个单元测试框架
+冒烟用例smoke  打标记 @pytest.mark.smoke  方法和类都可以用
+自动收集用例，用例执行顺序和unittest不一样，pytest-order
+环境管理更加灵活  fixture
+超多的插件，测试报告allure,重运行机制
+
+六、jenkins
+分布式  master-slave
+jenkins alluer 插件
+
+
 
 
 
