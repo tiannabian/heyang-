@@ -6,23 +6,24 @@ from complete_test_api_test.common import project_path
 
 class DoExcel:
     '''该类完成测试数据的读取以及测试结果的写会'''
-    def __init__(self,file_name,sheet_name):
-        self.file_name=file_name#工作簿文件名地址
-        self.sheet_name=sheet_name#表单名
+    def __init__(self, file_name,sheet_name):
+        self.file_name = file_name   #工作簿文件名地址
+        self.sheet_name = sheet_name   #表单名
 
-    def read_data(self,section):#配置文件里面的片段名，可以根据你的指定执行指定的用例
+    def read_data(self, section):  #配置文件里面的片段名，可以根据你的指定执行指定的用例
         '''从Excel读取数据，有返回值'''
         #从配置文件里面读取哪些测试用例
-        case_id=ReadConfig(project_path.conf_path).get_data(section,'case_id')
-        wb= load_workbook(self.file_name)#打开工作簿
-        sheet=wb[self.sheet_name]#确认表单
+        case_id = ReadConfig(project_path.conf_path).get_data(section,'case_id')
+        wb = load_workbook(self.file_name)  #打开工作簿
+        sheet = wb[self.sheet_name]  #确认表单
         #唯一的要求是什么？每一行数据要在一起{}[]
         #如何把每一行的数据存到一个空间里面去[]
         #开始读取数据
         #获取存在excel里面的电话号码
-        tel=self.get_tel()
 
-        test_data=[]
+        tel = self.get_tel()
+
+        test_data = []
         for i in range(2,sheet.max_row+1):
             row_data={}
             row_data['Caseid']=sheet.cell(i,1).value

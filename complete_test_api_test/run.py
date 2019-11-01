@@ -15,7 +15,7 @@ suite.addTest(loader.loadTestsFromTestCase(test_recharge))
 suite.addTest(loader.loadTestsFromTestCase(test_register))
 
 #执行测试用例，生成测试报告
-with open(project_path.report_path,'wb')as file:
+with open(project_path.report_path,'wb') as file:
     runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file,
                                             verbosity=2,
                                             title='123',
