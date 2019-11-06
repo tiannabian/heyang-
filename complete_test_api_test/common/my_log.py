@@ -5,6 +5,8 @@ import logging
 from complete_test_api_test.common.project_path import log_path
 
 class MyLog:
+
+
     def my_log(self, level, msg):
         #定义一个日志收集器并且还要设置级别
         my_logger = logging.getLogger('python14')
@@ -38,5 +40,5 @@ class MyLog:
             self.my_log('INFO', msg)
 
 if __name__ == '__main__':
-    test_logger = MyLog().my_log('ERROR','报错')
+    test_logger = MyLog().my_log('ERROR', '报错')
 
