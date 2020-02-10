@@ -2,19 +2,7 @@
 # __author__ = '何旺彤'
 
 import requests
-# #登陆请求
-# url = 'https://account.xiaomi.com/pass/serviceLogin?'
-# param = {'mobilephone':'1512997821','pwd':'p@ssw0rd'}
-#
-# #发送一个get请求
-# resp = requests.get(url, params=param)
-# #print(resp.text)
-# print(resp.json)
-#
-# #发送一个post请求
-# resp = requests.post(url, data = param)
-# #print(resp.text)
-# print(resp.json)
+
 class HttpRequest:
 
     def http_request(self, url, param, method, cookies):

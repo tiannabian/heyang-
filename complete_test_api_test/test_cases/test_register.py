@@ -1,6 +1,5 @@
 __author__ = '何旺彤'
 import unittest
-import ddt
 from ddt import ddt, data
 from complete_test_api_test.common.http_request import HttpRequest
 from complete_test_api_test.common.do_excel import DoExcel
@@ -9,7 +8,7 @@ from complete_test_api_test.common.my_log import MyLog
 from complete_test_api_test.common.get_data import GetData
 
 #测试注册
-test_data = DoExcel(project_path.case_path, 'register').read_data('RegisterCASE')#获取测试数据
+test_data = DoExcel(project_path.case_path, 'register').read_data()#获取测试数据
 my_log = MyLog()
 
 @ddt

@@ -1,6 +1,6 @@
 __author__ = '何旺彤'
 
-from complete_test_api_test import read_config
+from complete_test_api_test.common import read_config
 from complete_test_api_test.common import project_path
 import re
 
