@@ -1,0 +1,7 @@
+
+2020-05-03 20:20:41,506-INFO-learn_logging.py-python14-日志信息:用户名不能为空2
+2020-05-03 20:20:41,506-WARNING-learn_logging.py-python14-日志信息:用户名不能为空3
+2020-05-03 20:20:41,506-ERROR-learn_logging.py-python14-日志信息:用户名不能为空4
+2020-05-03 20:20:41,506-CRITICAL-learn_logging.py-python14-日志信息:用户名不能为空5
+2020-05-03 20:43:45,084-ERROR-my_logger.py-python14-日志信息:我是python
+'2020-05-03 22:14:15,382-ERROR-my_logger.py-lemon-日志信息:我是python'
