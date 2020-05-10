@@ -110,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.learn_suite">
+  <component name="RunManager" selected="Python.learn_request">
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="INTERPRETER_PATH" value="" />
@@ -140,6 +140,27 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
+    </configuration>
+    <configuration name="learn_request" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="heyang-" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/class_20200510" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/class_20200510/learn_request.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="learn_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="heyang-" />
@@ -177,21 +198,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for learn_ddt.TestPringMsg.test_002" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="heyang-" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/class_20200504" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;learn_ddt.TestPringMsg.test_002&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest for learn_unittest.TestAdd" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="heyang-" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,16 +232,16 @@
       <item itemvalue="Python.learn_suite" />
       <item itemvalue="Python tests.pytest for learn_unittest.TestAdd" />
       <item itemvalue="Python tests.pytest for learn_ddt.TestPringMsg" />
-      <item itemvalue="Python tests.pytest for learn_ddt.TestPringMsg.test_002" />
       <item itemvalue="Python tests.pytest in learn_ddt.py" />
+      <item itemvalue="Python.learn_request" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.learn_request" />
         <item itemvalue="Python.learn_suite" />
         <item itemvalue="Python tests.pytest for learn_unittest.TestAdd" />
         <item itemvalue="Python tests.pytest for learn_ddt.TestPringMsg" />
         <item itemvalue="Python tests.pytest in learn_ddt.py" />
-        <item itemvalue="Python tests.pytest for learn_ddt.TestPringMsg.test_002" />
       </list>
     </recent_temporary>
   </component>
